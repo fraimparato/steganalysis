@@ -2,7 +2,11 @@
   Steganography
 </h1>
 
-![img](assets/download.jpg)
+<div align="center">
+  
+  ![img](assets/download.jpg)
+
+</div>
 
 ## Objective
 Repository for the research project for the course **Cybersecurity and National Defence** of Politecnico di Torino.
