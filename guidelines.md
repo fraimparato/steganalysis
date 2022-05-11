@@ -1,4 +1,4 @@
-# Create a new section
+# Create a new section in the report
 
 1. Create the file in the "```report/sections/```" folder and name it
 "```NN_ChapterName.tex```", where "```NN```" is the section number and
