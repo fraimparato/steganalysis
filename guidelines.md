@@ -9,6 +9,5 @@
 3. In "```report/```" open "```main.tex```" and write the following lines:
     
     ```
-    \section{Your section's name}
     \subfile{NN_ChapterName}
     ```
