@@ -9,7 +9,7 @@ it `NN_ChapterName.tex`, where `NN` is the section number and
 `ChapterName` the name of the section (or a meaningful abbreviation) 
 
     * No SPACES
-    * CamelCase is shit use snake_notation
+    * **CamelCase** for the chapter name
 
 
 ```
@@ -19,10 +19,10 @@ it `NN_ChapterName.tex`, where `NN` is the section number and
             |   |__00_Example.tex
             |
             |__01_Image_Hiding
-            |    |__01_Image_Hiding.tex
+            |    |__01_ImageHiding.tex
             |
             |__02_Audio_Hiding
-                |__02_Audio_Hiding
+                |__02_AudioHiding
 
         ...
         
