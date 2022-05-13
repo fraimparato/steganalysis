@@ -8,7 +8,7 @@ it "```NN_ChapterName.tex```", where "```NN```" is the section number and
 
 3. Copy the content of "```template.tex```" and paste it in your file;
 
-4. In "```report/```" open "```main.tex```" and write the following lines:
+4. In "```report/```" open "```main.tex```" and write the following line:
     
     ```
     \subfile{NN_ChapterName}
