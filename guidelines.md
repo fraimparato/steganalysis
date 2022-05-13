@@ -1,15 +1,41 @@
-# Create a new section in the report
+# HOW TO
 
-1. Create a folder named "```NN_ChapterName```" in "```report/sections```"
+## Create a new section in the report
 
-2. Create the file in the "```report/sections/NN_ChapterName```" folder and name
-it "```NN_ChapterName.tex```", where "```NN```" is the section number and
-"```ChapterName```" the name of the section (or a meaningful abbreviation);
+1. Create a folder named `NN_ChapterName` in `report/sections`
 
-3. Copy the content of "```template.tex```" and paste it in your file;
+2. Create the file in the `report/sections/NN_ChapterName` folder and name
+it `NN_ChapterName.tex`, where `NN` is the section number and
+`ChapterName` the name of the section (or a meaningful abbreviation) 
 
-4. In "```report/```" open "```main.tex```" and write the following line:
+    * No SPACES
+    * CamelCase is shit use snake_notation
+
+
+```
+    report
+      |__sections
+            |__00_Example
+            |   |__00_Example.tex
+            |
+            |__01_Image_Hiding
+            |    |__01_Image_Hiding.tex
+            |
+            |__02_Audio_Hiding
+                |__02_Audio_Hiding
+
+        ...
+        
+```
+3. Use the default template: Copy the content of ```template.tex``` and paste it in your file
+
+4. open `report\main.tex` and write the following line:
     
     ```
+    ...
+    
     \subfile{sections/NN_ChapterName/NN_ChapterName.tex}
+    
+    ...
+    
     ```
