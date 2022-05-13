@@ -11,5 +11,5 @@ it "```NN_ChapterName.tex```", where "```NN```" is the section number and
 4. In "```report/```" open "```main.tex```" and write the following line:
     
     ```
-    \subfile{NN_ChapterName}
+    \subfile{sections/NN_ChapterName/NN_ChapterName.tex}
     ```
