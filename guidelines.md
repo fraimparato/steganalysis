@@ -27,33 +27,38 @@ it `NN_ChapterName.tex`, where `NN` is the section number and
         ...
         
 ```
-3. Use the default template: Copy the content of ```template.tex``` and paste it in your file
+3. Use the default template: Copy the content of ```template.tex``` and paste it
+in your file
 
-4. open `report\main.tex` and write the following line:
+4. Open `report\main.tex` and write the following line:
     
-    ```
+```
     ...
-    
+
     \subfile{sections/NN_ChapterName/NN_ChapterName.tex}
     
-    ...
-    
-    ```
+    ...    
+```
 
 
 ```
-    __________________
+    ___________________
     |                 |
-    |    __     __    |     _____________
+    |    __     __    |   ________________
     |   |  |   |  |   |   | Leggi        |
     |   |__|   |__|   |   | e non fare il|
     |                 |   |  furbetto    |
     |        __       |   |______________|
-    |       |__|      |         /
+    |       |__|      |        __/
     |_________________|
             /|\
-            /\
+             |
+            / \
 
 ```
 
+## General advices
 
+- In order to have a more clean code, go to a new line whenever you reach the
+80th column (80th character on the current line)
+- Write meaningful and frequent commits
