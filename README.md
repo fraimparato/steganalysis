@@ -25,6 +25,9 @@ root folder of the project
 Moreover, in the root folder is present a file called ```guidelines.md``` which
 provides informations about how to practically work on this project.
 
+The file ```clear.sh``` is a Bash script that you can run in order to get rid of
+all the temporary files which are created when a LaTeX compilation is done.
+
 ### Example
 
 ![img](assets/download.jpg)
