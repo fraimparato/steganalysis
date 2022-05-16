@@ -8,7 +8,8 @@
 
 ### Objective
 
-This repository is part of the research project for the course **Cybersecurity and National Defence** of Politecnico di Torino.
+This repository is part of the research project for the course
+**Cybersecurity and National Defence** of Politecnico di Torino.
 
 ### Repository structure
 
