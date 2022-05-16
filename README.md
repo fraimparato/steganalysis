@@ -1,4 +1,4 @@
-# Steganography
+# Steganalysis
 
 ## Index
 
