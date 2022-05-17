@@ -2,9 +2,11 @@
 
 ## Index
 
-1. [Create a new section in the report](#create-a-new-section-in-the-report)
-1. [Add a reference](#add-a-reference)
-1. [General advices](#general-advices)
+- [HOW TO](#how-to)
+  - [Index](#index)
+    - [Create a new section in the report](#create-a-new-section-in-the-report)
+    - [Add a reference](#add-a-reference)
+    - [General advices](#general-advices)
 
 ### Create a new section in the report
 
@@ -79,7 +81,7 @@ bibliography. You have to add the work in ```references.bib``` in the
 ### General advices
 
 - In order to have a more clean code, go to a new line whenever you reach the
-80th column (80th character on the current line)
+80th column (80th character on the current line) and when you reach a full stop
 - Write meaningful and frequent commits
 
 ```
