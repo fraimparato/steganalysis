@@ -2,11 +2,9 @@
 
 ## Index
 
-- [HOW TO](#how-to)
-  - [Index](#index)
-    - [Create a new section in the report](#create-a-new-section-in-the-report)
-    - [Add a reference](#add-a-reference)
-    - [General advices](#general-advices)
+- [Create a new section in the report](#create-a-new-section-in-the-report)
+- [Add a reference](#add-a-reference)
+- [General advices](#general-advices)
 
 ### Create a new section in the report
 
