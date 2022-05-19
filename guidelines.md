@@ -24,10 +24,10 @@ it `NN_ChapterName.tex`, where `NN` is the section number and
                 |__00_Example
                 |   |__00_Example.tex
                 |
-                |__01_Image_Hiding
+                |__01_ImageHiding
                 |    |__01_ImageHiding.tex
                 |
-                |__02_Audio_Hiding
+                |__02_AudioHiding
                     |__02_AudioHiding
 
             ...
@@ -75,6 +75,7 @@ bibliography. You have to add the work in ```references.bib``` in the
         author = "Surname, Name",
         title = "Report Title",
         year = "2022",
+    }
     ```
 
 Then, to cite the article/book, in the ```.tex``` file you're writing, you have
