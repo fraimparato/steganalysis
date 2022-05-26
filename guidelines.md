@@ -36,7 +36,7 @@ it `NN_ChapterName.tex`, where `NN` is the section number and
 1. Use the default template: Copy the content of ```template.tex``` and paste it
 in your file
 
-1. Open `report\main.tex` and write the following line (you have to substitute
+1. Open ```report\main.tex``` and write the following line (you have to substitute
 the general name used in the example with your file and folder's name):
         
     ```
