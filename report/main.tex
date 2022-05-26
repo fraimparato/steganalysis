@@ -8,12 +8,15 @@
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{biblatex}
 
 \usepackage{subfiles}
 
+\addbibresource{references.bib}
+
 \title{
     Cybersecurity and National Defence\\--\\
-    \Large Steganography}
+    \Large Steganography: steganalysis}
 
 \author{\\Alberto Eusebio, Francesco Imparato, Federico Morro,\\Salvatore
 Orlando, Giulia Rivetti}
@@ -22,9 +25,15 @@ Orlando, Giulia Rivetti}
 
 \begin{document}
     \maketitle
+
+    \pagebreak
+
+    \subfile{sections/00_Abstract/00_Abstract.tex}
     \tableofcontents
 
     \pagebreak
+
     \subfile{sections/01_Introduction/01_Introduction.tex}
 
+    \printbibliography
 \end{document}
