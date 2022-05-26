@@ -87,6 +87,9 @@ to add the following:
 
 ### General advices
 
+- In the case in which when you have a conflict during a ```git push``` on the
+```main.pdf``` file, just delete it, push your commit and then re-create it and
+push it again
 - In order to have a more clean code, go to a new line whenever you reach the
 80th column (80th character on the current line) and when you reach a full stop
 - Write meaningful and frequent commits
