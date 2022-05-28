@@ -78,6 +78,15 @@ bibliography. You have to add the work in ```references.bib``` in the
     }
     ```
 
+- for websites:
+    ```
+    @online{website-code,
+        author = "Site Name / Author Name",
+        title = "Page Name",
+        url = "<url>"
+    }
+    ```
+
 Then, to cite the article/book, in the ```.tex``` file you're writing, you have
 to add the following:
 
