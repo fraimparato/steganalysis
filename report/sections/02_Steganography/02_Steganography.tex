@@ -16,6 +16,18 @@ purposes.
 
 \subsection{Steganography}
 
+Steganographic methods may be grouped under two different classifications.
+
+For the first, we distinguish injective and generative steganography.
+While injective steganography consists in finding an optimal way of injecting the message for a given cover type, generative steganography aims at generating an adequate container optimal for hiding a sought message.
+
+As for the second classification, we mainly discriminate between substitutive and constructive steganography
+
+Substitutive steganography targets the noise in signals, to substitute the atmospheric noise with a secret message, whether it concerns audio or digital image signals. Most commonly, it may be achieved by replacing the LsB (Least Significant Bit), which is most susceptible to error, with the hidden message in the matrix of signals.  Several drawbacks arise, such as the limited size of the message to be inserted to avoid amplified distorsions of the original signals, the resilience to various degrees of compression and signals transformations, and lastly the transparency of the message.
+We leave for a further discussion the different available tradeoffs, selectively mitigating some of the aforementioned drawbacks. 
+
+Similarly, constructive steganography integrates a noise model. The main drawback is that it is hard to produce, and by design fragile to attacks.
+
 \subsection{Watermarking}
 
 \pagebreak
