@@ -71,7 +71,7 @@ bibliography. You have to add the work in ```references.bib``` in the
 - for a scientific paper:
 
     ```
-    @report{report_code,
+    @article{report_code,
         author = "Surname, Name",
         title = "Report Title",
         year = "2022",
@@ -92,6 +92,16 @@ to add the following:
 
 ```
 \cite{code_you_need}
+```
+
+In the case there are commas into one of the fields (example:
+```"name surname 1, name surname 2"```) you *have* to use curly brackets like:
+```
+@article{methodology-steganalysis-images,
+    author = "{A. Hernandez-Chamorro, A. Espejel-Trujillo, J. Lopez-Hernandez, M. Nakano-Miyatake, H. Perez-Meana}",
+    title = "A Methodology of Steganalysis for Images",
+    year = "2009"
+}
 ```
 
 ### General advices
