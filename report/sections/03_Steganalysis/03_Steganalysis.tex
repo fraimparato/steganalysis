@@ -15,7 +15,6 @@
     \subsubsection{Statistical}
 
     \subsubsection{Structural}
-    
 
     \subsection{Cover types}
     In the following sections, we will treat several \emph{cover} in which
@@ -90,13 +89,9 @@
     coefficients with the secret message: since the modification is done in the
     frequency domain, there is no human perceivable change in the image.
 
-
     \subsubsection{Chi-square test}
 
-    
-
     \subsection{Audio}
-    
     
     \subsection{Text}
     \emph{Soft-copy text} is the most difficult place in which steganography is
@@ -106,16 +101,12 @@
     % Read "Modern Text Hiding, Text Steganalysis, and Application"
     %   from sources folder on Drive before writing here
 
-
-    
-    
-
     \subsection{TCP/IP}
     \subsubsection{Introduction}
     Before treating such topic we must briefly discuss the behaviour of the
     TCP/IP (\textbf{Internet protocol suit}) communications.
     
-    \textbf{IP (Internet Protocol)} is at the basis of internet communication.
+    \paragraph{IP (Internet Protocol)} is at the basis of internet communication.
     The protocol exploits the principle of encapsulation, sending packets
     composed by a \emph{header} which contains information such as the
     \textbf{destination address} and \textbf{source address} and a
@@ -124,14 +115,14 @@
     Transmission Unit}, then the data is usually fragmented in smaller chunks,
     wrapped into an header and only then transmitted.
     
-    \textbf{TCP (Transmission Control protocol)} is a protocol used for reliable
+    \paragraph{TCP (Transmission Control protocol)} is a protocol used for reliable
     (little information loss), ordered, error-checked data transmission between
     a machine hosting the data (\textbf{Server}) and another requiring such data
     (\textbf{Client}). It is performed previous a three-way handshake which
     estabilishes a connection between server and client, thus preparing a
     reliable communication channel.
 
-    \textbf{UDP (User Datagram Protocol)}, contrary to TCP, is less reliable but
+    \paragraph{UDP (User Datagram Protocol)}, contrary to TCP, is less reliable but
     faster.
     It broadcasts the data in an unordered and uncontrolled way to the receiver. 
     There is no need to estabilishing a connection in order to implement such
@@ -178,12 +169,12 @@
     that we will illustrate through some examples.
 
 
-    \textbf{Tof(Type of service)} bits are a field in the TCP header which are
+    \paragraph{Tof(Type of service)} bits are a field in the TCP header which are
     nowdays rarely used. This could open doors to a steganographic attack if
     modern operating systems did not set them to zero by default.
     A warden monitoring the channel could immediately signal an error.
 
-    \textbf{IP ID} is a field in the Internet Protocol which is used to assist
+    \paragraph{IP ID} is a field in the Internet Protocol which is used to assist
     the receiver in reassemblying the fragmented packets.
     This field consist of randomly unique numbers representing a packet.
     It is possible to insert other types of information in this field by simply
@@ -192,7 +183,7 @@
     knowing the charachteristics of the sender it is possible to detect an
     infiltration.
 
-    \textbf{IP Fragment Offset} is an offset which is present in the IP header
+    \paragraph{IP Fragment Offset} is an offset which is present in the IP header
     which helps the receiver to reconstruct the sequence of bits from the
     fragmented sequence.
     Modulating the size of the fragments changes the offset field in the header
@@ -201,7 +192,7 @@
     packets relative to the MTU and so even in this case a warden can easily
     detect an error.
 
-    \textbf{TCP sequence number} is a field in the TCP header which stores the
+    \paragraph{TCP sequence number} is a field in the TCP header which stores the
     randomly chosen position(for security reasons) of the first byte to be
     transmitted through the channel. The steganographic method consists in
     replacing this field with the data to be sent.
@@ -212,8 +203,8 @@
     However an error could be detected even simply by checking the presence of
     repetitions in the stream(not admitted by design). 
 
-    \textbf{Timestamp modulation} is another technique of steganography which
-    operate by modifing the \emph{LSB}\footnote{Least Significant bit} of the
+    \paragraph{Timestamp modulation} is another technique of steganography which
+    operate by modifing the \emph{LSB} of the
     timestamp of a TCP packet in order to represent a '1'.
     The covert message is thus embedded into the data stream.
     Since the TCP Timestamp support is not universal, machines not supporting
@@ -232,7 +223,7 @@
     Diffreent methods of covert channel detection are used, employing IP ID 
     characteristics, TCP ISN characteristics and explicit steganography detection.
 
-    /textbf{IP ID characteristics} are the features identifying the IP address, a 
+    \paragraph{IP ID characteristics} are the features identifying the IP address, a 
     unique address that identifies a device on the internet or local network. They are 
     employed by the following methods.
     \emph{Sequential Global IP ID} implies the usage of a global counter for the IP ID. 
@@ -248,7 +239,7 @@
     \emph{IP ID Permutation} strategy presence can be discarded by the warden if there are 
     duplicates, since within a rekey interval the IP ID is non-repeating.
 
-    /textbf{Explicit steganography detection} can be employed by several methods.
+    \paragraph{Explicit steganography detection} can be employed by several methods.
     \emph{Nushu Criptography} is a strategy applied by Nushu, which encrypts data before 
     including it in the ISN field, resulting in a distribution which differs form the one
     that is normally generated by Linux; therefore, it can be detected. 
@@ -256,7 +247,7 @@
     if a low bandwidth TCP connection is being used to leak information, this test can be applied 
     to the LSBs of the timestamps in the TCP packets. If an excessive presence of randomness 
     is detected in the LSBs, it can be deduced that a steganographic covert channel is in use.
-    There are also other features which may indicate the usage of steganography: /emph{unsual 
+    There are also other features which may indicate the usage of steganography: \emph{unsual 
     flags}, \emph{excessive fragmentation}, use of \emph{IP options}, \emph{unexpected TCP
     options} and \emph{excessive re-ordering}.
 
