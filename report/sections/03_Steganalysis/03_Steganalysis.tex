@@ -134,6 +134,36 @@
     Another method used to detect hidden messages on the LSB plane is the
     \emph{Closest Color Pair method}.
 
+    When an image has a steganographed message in the LSB plane, the number of
+    close colors increases \cite{detecting-lsb-steganography}. Given two pair of
+    colors $C_1=[R_1,G_1,B_1],\ C_2=[R_2,G_2,B_2]$, the condition of them being
+    close is:
+
+    \[ (R_1-R_2)^2+(G_1-G_2)^2+(B_1-B_2)^2 \leq 3 \]
+
+    We apply a LSB embedding steganography algorithm on the image and we compute
+    the number of close color pairs in both images.
+
+    Now, we define:
+
+    \begin{itemize}
+        \item $P$ as the number of close color pairs; $P'$ as the number of
+              close color pairs of the stegoimage;
+        \item $U$ as the number of color pairs; $U'$ as the number of color
+              pairs of the stegoimage
+    \end{itemize}
+
+    Then, we compute:
+
+    \[ R = \frac{P}{\binom{U}{2}},\ R' = \frac{P'}{\binom{U'}{2}} \]
+
+    We know that if
+
+    \[ \frac{R}{R'} \geq Th, Th = 1.1 \]
+
+    \noindent then the image is a natural image, otherwise it contains an hidden
+    message. All the proofs are in \cite{detecting-lsb-steganography}.
+
     \subsubsection{DCT Domain embedding method}
     The DCT Domain embedding method works on \emph{JPEG} images, one of the most
     used format on Internet web sites.
