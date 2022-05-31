@@ -57,11 +57,11 @@ bibliography. You have to add the work in ```references.bib``` in the
 
     ```
     @book{book_code,
-        author = "Surname, Name",
-        title = "Book Title",
-        year = "2022",
-        publisher = "Publisher name",
-        editor = "Editor name",
+        author = {Surname, Name},
+        title = {Book Title},
+        year = {2022},
+        publisher = {Publisher name},
+        editor = {Editor name},
         ...
     }
     ```
@@ -72,18 +72,19 @@ bibliography. You have to add the work in ```references.bib``` in the
 
     ```
     @article{report_code,
-        author = "Surname, Name",
-        title = "Report Title",
-        year = "2022",
+        author = {Surname, Name},
+        title = {Report Title},
+        year = {2022},
+        DOI = {<url DOI>}
     }
     ```
 
 - for websites:
     ```
     @online{website-code,
-        author = "Site Name / Author Name",
-        title = "Page Name",
-        url = "<url>"
+        author = {"Site Name / Author Name"},
+        title = {Page Name},
+        url = {<url>}
     }
     ```
 
@@ -92,16 +93,6 @@ to add the following:
 
 ```
 \cite{code_you_need}
-```
-
-In the case there are commas into one of the fields (example:
-```"name surname 1, name surname 2"```) you *have* to use curly brackets like:
-```
-@article{methodology-steganalysis-images,
-    author = "{A. Hernandez-Chamorro, A. Espejel-Trujillo, J. Lopez-Hernandez, M. Nakano-Miyatake, H. Perez-Meana}",
-    title = "A Methodology of Steganalysis for Images",
-    year = "2009"
-}
 ```
 
 ### General advices

@@ -3,10 +3,10 @@
 \begin{document}
     
     \section{Steganalysis}
-    Steganalysis is the branch os study dedicated at analysing the methods and
+    Steganalysis is the branch of study dedicated at analysing the methods and
     the vectors used to transmit an hidden message in order to retrieve such
     message whenever it is present.
-    Unlike chryptanalysis where the message may even be apparent but enchrypted,
+    Unlike cryptanalysis where the message may even be apparent but encrypted,
     in steganalysis the study of the message starts from a suspect.
     \subsection{Methods}
     Hereinafter we will present the two type of methods used in steganalysis in
@@ -82,6 +82,53 @@
     problem is that the variation between two different images is \emph{bigger}
     than the distribution variation between a natural image and its stegoimage.
     \cite{methodology-steganalysis-images}
+
+    The proposed way to proceed is the following
+    \cite{new-detection-lsb-steganography}, starting from the test image (that
+    we will call $h$, considering $h$ a grayscale image or a color image under
+    some assumptions) we generate:
+    \begin{enumerate}
+        \item an image $f$ given by $h$ with flipped LSB
+        \item an image $g$ given by $h$ zeroing the LSB
+        \item images $D_h$, $D_f$, $D_g$, created by the respective image of
+              each one with the following formula:
+
+              \[ D(i,j) = I(i+1,j) - I(i,j) \]
+
+              where $I$ is the image denoted by the subscript and the couple
+              $(i,j)$ a unique pixel of the image
+    \end{enumerate}
+
+    At this point, we can analyse the histograms of the three generated images
+    $D_h$, $D_f$, $D_g$:
+
+    \[
+        H = \{h_i | i = -255,\ ...,\ +255\},\ 
+        F = \{f_i | i = -255,\ ...,\ +255\},\ 
+        G = \{g_i | i = -255,\ ...,\ +255\}
+    \]
+
+    \begin{figure}[h]
+        \centering
+        \caption{Transition values from $G$ to $H$ and $F$}
+        \includegraphics[scale=0.4]{difference_histogram_mtd.png}
+    \end{figure}
+
+    then, we define the following values:
+
+    \[ \alpha_i = \frac{a_{2i+2,2i+1}}{a_2i,2i+1} \]
+    \[ \beta_i = \frac{a_{2i+2,2i+3}}{a_2i,2i-1} \]
+    \[ \gamma_i = \frac{g_{2i}}{g_{2i+2}} \]
+
+    As found out by X. Ping and T. Zhang in
+    \cite{new-detection-lsb-steganography}:
+
+    \begin{itemize}
+        \item if $\alpha_i \approx 1, \forall i \in \{-255, -254, ..., 255\}$
+              then the image contains some hidden message;
+        \item otherwise, for natural images, $\alpha_i \approx \gamma_i$ is
+              satisfied.
+    \end{itemize}
     
     \subsubsection{Closest Color Pair method}
 
@@ -113,24 +160,24 @@
     Before treating such topic we must briefly discuss the behaviour of the
     TCP/IP (\textbf{Internet protocol suit}) communications.
     
-    \paragraph{IP (Internet Protocol)} is at the basis of internet communication.
-    The protocol exploits the principle of encapsulation, sending packets
-    composed by a \emph{header} which contains information such as the
+    \paragraph{IP (Internet Protocol)} is at the basis of internet
+    communication. The protocol exploits the principle of encapsulation, sending
+    packets composed by a \emph{header} which contains information such as the
     \textbf{destination address} and \textbf{source address} and a
     \emph{payload} which represents the actual data to be transmitted.
     Since physical channels usually have a limited \emph{MTU}\footnote{Maximum
     Transmission Unit}, then the data is usually fragmented in smaller chunks,
     wrapped into an header and only then transmitted.
     
-    \paragraph{TCP (Transmission Control protocol)} is a protocol used for reliable
-    (little information loss), ordered, error-checked data transmission between
-    a machine hosting the data (\textbf{Server}) and another requiring such data
-    (\textbf{Client}). It is performed previous a three-way handshake which
-    estabilishes a connection between server and client, thus preparing a
+    \paragraph{TCP (Transmission Control protocol)} is a protocol used for
+    reliable (little information loss), ordered, error-checked data transmission
+    between a machine hosting the data (\textbf{Server}) and another requiring
+    such data (\textbf{Client}). It is performed previous a three-way handshake
+    which estabilishes a connection between server and client, thus preparing a
     reliable communication channel.
 
-    \paragraph{UDP (User Datagram Protocol)}, contrary to TCP, is less reliable but
-    faster.
+    \paragraph{UDP (User Datagram Protocol)}, contrary to TCP, is less reliable
+    but faster.
     It broadcasts the data in an unordered and uncontrolled way to the receiver. 
     There is no need to estabilishing a connection in order to implement such
     protocol.
@@ -146,8 +193,6 @@
         \caption{Structure of TCP packet}
         \includegraphics[scale=0.3]{udp_header.png}
     \end{figure}
-
-    \pagebreak
 
     \subsubsection{Exploits and protection tools}
 
@@ -176,13 +221,13 @@
     that we will illustrate through some examples.
 
 
-    \paragraph{Tof(Type of service)} bits are a field in the TCP header which are
-    nowdays rarely used. This could open doors to a steganographic attack if
+    \paragraph{Tof(Type of service)} bits are a field in the TCP header which
+    are nowdays rarely used. This could open doors to a steganographic attack if
     modern operating systems did not set them to zero by default.
     A warden monitoring the channel could immediately signal an error.
 
-    \paragraph{IP ID} is a field in the Internet Protocol which is used to assist
-    the receiver in reassemblying the fragmented packets.
+    \paragraph{IP ID} is a field in the Internet Protocol which is used to
+    assist the receiver in reassemblying the fragmented packets.
     This field consist of randomly unique numbers representing a packet.
     It is possible to insert other types of information in this field by simply
     conform to the uniqueness constraint.
@@ -190,8 +235,8 @@
     knowing the charachteristics of the sender it is possible to detect an
     infiltration.
 
-    \paragraph{IP Fragment Offset} is an offset which is present in the IP header
-    which helps the receiver to reconstruct the sequence of bits from the
+    \paragraph{IP Fragment Offset} is an offset which is present in the IP
+    header which helps the receiver to reconstruct the sequence of bits from the
     fragmented sequence.
     Modulating the size of the fragments changes the offset field in the header
     and thus a message could be sent.
@@ -199,8 +244,8 @@
     packets relative to the MTU and so even in this case a warden can easily
     detect an error.
 
-    \paragraph{TCP sequence number} is a field in the TCP header which stores the
-    randomly chosen position(for security reasons) of the first byte to be
+    \paragraph{TCP sequence number} is a field in the TCP header which stores
+    the randomly chosen position(for security reasons) of the first byte to be
     transmitted through the channel. The steganographic method consists in
     replacing this field with the data to be sent.
     Being random it is more difficult to spot a breach in the channel.
@@ -223,40 +268,47 @@
     Each operating system exhibits well defined characteristics in generated
     TCP/IP fields. These can be used to identify any anomalies that may indicate 
     the use of steganography. For this purpose, a suite of tests which may be
-    applied to \emph{network traces}\footnote{function that performs network analysis
-    on a geometric network} are defined and they are used to identify whether 
-    the results are consistent with the operating systems believed to be installed
-    on the source host.
+    applied to \emph{network traces}\footnote{function that performs network
+    analysis on a geometric network} are defined and they are used to identify
+    whether the results are consistent with the operating systems believed to be
+    installed on the source host.
     Diffreent methods of covert channel detection are used, employing IP ID 
-    characteristics, TCP ISN characteristics and explicit steganography detection.
+    characteristics, TCP ISN characteristics and explicit steganography
+    detection.
 
-    \paragraph{IP ID characteristics} are the features identifying the IP address, a 
-    unique address that identifies a device on the internet or local network. They are 
-    employed by the following methods.
-    \emph{Sequential Global IP ID} implies the usage of a global counter for the IP ID. 
-    To detect this strategy one has to look if connections to different hosts have 
-    sequentially increasing IP IDs.
-    \emph{Sequential Per-host IP ID} is characterized by the usage of a per-host counter 
-    for packets. If it apperas to be fragmented, the warden can test whether connections 
-    to different hosts use apparently unrelated IP IDs; however connections to the same 
-    host have a sequentially increasing IP ID.
-    \emph{IP ID MSB Toggle} represents the case where the operating system system toggles 
-    the most significant bit of the IP ID every rekey interval, so that the warden can 
-    examine the MSB to check if it matches this pattern.
-    \emph{IP ID Permutation} strategy presence can be discarded by the warden if there are 
-    duplicates, since within a rekey interval the IP ID is non-repeating.
+    \paragraph{IP ID characteristics} are the features identifying the IP
+    address, a unique address that identifies a device on the internet or local
+    network. They are employed by the following methods.
+    \emph{Sequential Global IP ID} implies the usage of a global counter for the
+    IP ID. 
+    To detect this strategy one has to look if connections to different hosts
+    have sequentially increasing IP IDs.
+    \emph{Sequential Per-host IP ID} is characterized by the usage of a per-host
+    counter for packets. If it apperas to be fragmented, the warden can test
+    whether connections to different hosts use apparently unrelated IP IDs;
+    however connections to the same host have a sequentially increasing IP ID.
+    \emph{IP ID MSB Toggle} represents the case where the operating system
+    system toggles the most significant bit of the IP ID every rekey interval,
+    so that the warden can examine the MSB to check if it matches this pattern.
+    \emph{IP ID Permutation} strategy presence can be discarded by the warden if
+    there are duplicates, since within a rekey interval the IP ID is
+    non-repeating.
 
-    \paragraph{Explicit steganography detection} can be employed by several methods.
-    \emph{Nushu Criptography} is a strategy applied by Nushu, which encrypts data before 
-    including it in the ISN field, resulting in a distribution which differs form the one
-    that is normally generated by Linux; therefore, it can be detected. 
-    \emph{TCP Timestamp} strategy involves the execution of a randomness test. In particular, 
-    if a low bandwidth TCP connection is being used to leak information, this test can be applied 
-    to the LSBs of the timestamps in the TCP packets. If an excessive presence of randomness 
-    is detected in the LSBs, it can be deduced that a steganographic covert channel is in use.
-    There are also other features which may indicate the usage of steganography: \emph{unsual 
-    flags}, \emph{excessive fragmentation}, use of \emph{IP options}, \emph{unexpected TCP
-    options} and \emph{excessive re-ordering}.
+    \paragraph{Explicit steganography detection} can be employed by several
+    methods.
+    \emph{Nushu Criptography} is a strategy applied by Nushu, which encrypts
+    data before including it in the ISN field, resulting in a distribution which
+    differs form the one that is normally generated by Linux; therefore, it can
+    be detected. 
+    \emph{TCP Timestamp} strategy involves the execution of a randomness test.
+    In particular, if a low bandwidth TCP connection is being used to leak
+    information, this test can be applied to the LSBs of the timestamps in the
+    TCP packets. If an excessive presence of randomness is detected in the LSBs,
+    it can be deduced that a steganographic covert channel is in use.
+    There are also other features which may indicate the usage of steganography:
+    \emph{unsual flags}, \emph{excessive fragmentation}, use of \emph{IP
+    options}, \emph{unexpected TCP options} and \emph{excessive re-ordering}.
 
     \pagebreak
+
 \end{document}
