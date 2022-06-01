@@ -204,10 +204,44 @@
     
 
     \subsection{Text}
+    In this section we will illustrate in general the principle of work of the MTHS using the famous Simmons' prisoner problem.
+    The information conveied in this part referes mainly to \cite{modern-text-hiding}.
+    \subsubsection{Modern Text Hiding Schema}
+    The scenario proposed by Simmons present two prisoners, Alice and Bob who wishes to communicate, and Eve an active warden who tries to disturb the communication.
+    
+    \begin{figure}[h]
+        \centering
+        \caption{Modern Text Hiding Schema}
+        \includegraphics[scale=0.45]{modern_text_hiding.png}
+    \end{figure}
+    
+    The proposed image intuitively explains the logic of the schema. Alice who whishes to send a Secret Message(SM) to Bob, will produce a Cover Message(CM), 
+    \emph{i.e.} an innocent message which will work as a carrier. She will then embedd the SM into the CM using a steganographic algorithm and, optionnally\footnote{This is the domain of cryptography}, securing it with a key(K).
+    In the end she will pass the message to Eve, who will analyse it before giving it to Bob. Eve, an active warden, will use steganalysis tools in order to break the cover taylored by Alice and will possibly distort the message in order to make it unreadable to Bob.
+    Once the message arrives to Bob, he will apply the inverse steganographic algorithm in order to read the message. Since the message could be courrupted Bob will have to perform some error correction in order to make the message readable again(whenever this is possible).
+    To summarize the principal charachteristics of the message sent by Alice are:
+    \begin{itemize}
+        \item \emph{invisibility}: the message should not be noted by Eve
+        \item \emph{capacity}: the CM must be large enough to embedd all the SM
+        \item \emph{distortion roboustness}: the SM should resist the noise produced by Eve in the channel
+    \end{itemize}
+
+    \subsubsection{Steganography in text}
+    Now let us abandon the prison world to move to the digital domain. We now want to propose intuitively some algorithm which could be exploited to cover hidden messages into text.
+    The field of hidden-text encoding owes its growth to two main factors: the introduction of the Unicode Standard and the growth in popularity of social media and messenger applications.
+    The number of "invisible" characters introduced by the Unicode standardization can be exploited by steganographic algorithms just as invisible ink was exploited in handwritten steganography.
+    Combining this result with the fact that the modern society produces every year more data than ever before in human history, the possibilities and the threats brought by steganography in the digital world are basically limitless.
+
     \emph{Soft-copy text} is the most difficult place in which steganography is
     performed due to the fact that there are no redundant informations nor large
     set of data that can be slightly modified without affecting the overall look
     of the cover.
+
+    \subsubsection{steganalysis}
+
+    \paragraph{visual steganalysis}
+    This is a human powered technique which simply consists in reading the texts searching for anomalies in the syntax, 
+    impagination and type of characters used. This type of analysis can only be performed by trained users and in most of the scenarios simply detects the presence of hidden messagges without retreiving it.
     % Read "Modern Text Hiding, Text Steganalysis, and Application"
     %   from sources folder on Drive before writing here
 
