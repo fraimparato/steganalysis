@@ -232,10 +232,28 @@
     The number of "invisible" characters introduced by the Unicode standardization can be exploited by steganographic algorithms just as invisible ink was exploited in handwritten steganography.
     Combining this result with the fact that the modern society produces every year more data than ever before in human history, the possibilities and the threats brought by steganography in the digital world are basically limitless.
 
-    \emph{Soft-copy text} is the most difficult place in which steganography is
-    performed due to the fact that there are no redundant informations nor large
-    set of data that can be slightly modified without affecting the overall look
-    of the cover.
+    \begin{figure}[h]
+        \centering
+        \caption{Text Hiding techniques}
+        \includegraphics[scale=0.45]{text_hiding.png}
+    \end{figure}
+
+    As you can see the field is vast even here and unfortunately we will only trreat the most interesting points of the numerous ramifications.
+
+    \paragraph{Structural}
+    This set of techniques consist in altering the structure of the document rather than actively modifying the file. The case of \emph{open space} is significant: the spaces are substituted by other
+    invisible Unicode character. This technique is easily noticeable(even by the human eye) and not so much rubust. Similar is the \emph{zero width} techniques which exploits the zero width characters present in the Unicode standard.
+    Even more visible are the format, color and alignement alterations of \emph{Format}. Much more interesting is the case of \emph{Emoticons} which has found secure ground in the last period and which consist of assigning to each emojy a code(letter or word).
+
+    \paragraph{Linguistic}
+    Much more stable are the algorithms which exploits linguistic characteristics in order to hide the presence of hidden bits. In the \emph{Semantic} case the message is hidden inside 
+    abbreviations or achronyms. This method provides much more reliability and lower embedding capability than the previous one. Much worse and visible is the \emph{Si
+yntactic} approach which consists in changing symbols with others to represent some code.
+
+    \paragraph{Random and Statistic}
+    These method start only from the SM and try to generate a CM. They are usually much more time and resources consuming. The \emph{Compression} method consists in compressing the 
+    text of the SM using well known compression algorithms such as \emph{Huffman Coding}. The so compressed text is then reordered to mimic the user-typed format or at least a plausible one.
+    Not much more efficient is the \emph{Random Cover} approach where an algorithm(\emph{AH4s}) is used to generate a long(and usually meaninglsess) text from the specified SM. The latter method is indeed very visible and also computationally expensive.
 
     \subsubsection{steganalysis}
 
@@ -248,7 +266,7 @@
     We have already treated this in the previous section, but now we will focus our attention on the particular case of text steganography.
     Since we don't want to treat the topic from a too mathematical perspective , we will try not to enter into the mathematical technicalities. The basic principle beneath is the assumption
     that it is possible to describe the message with a probability function.
-    Recalling some basic principles of probability, if $ x_1, x_2, x_3 \dots x_n $ are independent, then $ p(x_1, x_2, x_3, ... x_n) = p(x_1) * p(x_2) * \dots * p(x_n)$. 
+    Recalling some basic principles of probability, if $ x_1, x_2, x_3 \dots x_n $ are independent, then $ p(x_1, x_2, x_3, ... x_n) = p(x_1) p(x_2) \dots p(x_n)$. 
     Instead when they are not then $ p(x_1, x_2, x_3, ... x_n) = p(x_1) p(x_2 | x_1) p(x_3 | x_1, x_2) \dots p(x_n | x_1, x_2, \dots, x_{n-1})$. Starting by the assumption that written text follows a logic schema and thus that words are interdependently related, then by computing the probability function
     of the text and comparing it to the one of the \emph{stego-message}(assumed to be perturbed by steganography) we can detect the presence of steganography in the text. 
     This tells us that in theory is possible to detect whether a sequence of characters follows a specific pattern or not,
