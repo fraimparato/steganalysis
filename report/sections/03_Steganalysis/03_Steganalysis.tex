@@ -176,8 +176,44 @@
 
     \subsubsection{Chi-square test}
 
+
     \subsection{Audio}
+    Steganography in audio is more challenging with respect to images, because
+    the \emph{human auditory system} (HAS) operates over a wide dynamic range,
+    while maintaining a high sensitivity to perturbations and noises.
+    Howerer, there are still some ``holes'' where data can be hidden.
+    The HAS has a quite small differential range, so loud sounds mask out quiet
+    sounds, moreover it is unable to perceive absolute sound phase, but only
+    relative one.
+
+    Another important factor to consider when dealing with sound are the
+    transmissions enviroments.
+    Audio signals can be transmitted through a digital channel (eventually being
+    resampled), through an analog channel or ``over the air'' played by a
+    speaker and received by a microphone.
+    Depending on the transmission channel there could be huge modification that
+    can make the steganalysis process impossible, but also that can compromise
+    irreparably the hidden message, damaging also the steganographer.
+
+    Due to the several issues presented above, steganalysis in audio signals is
+    more complex with respect to other cover types.
+    In the following sections we will cover some of the possible ways in which
+    steganography and steganalysis is applied in audio signals, without entering
+    too much in details.
+
+    % Refer to data hiding to write the following subsubsection
+    %   write just short paragraph explaining briefly how data are encoded and
+    %   in particular how they can be retrieved
     
+    \subsubsection{Low-bit coding}
+
+    \subsubsection{Phase coding}
+
+    \subsubsection{Spread spectrum}
+
+    \subsubsection{Echo data hiding}
+    
+
     \subsection{Text}
     \emph{Soft-copy text} is the most difficult place in which steganography is
     performed due to the fact that there are no redundant informations nor large
