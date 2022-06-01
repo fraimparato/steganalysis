@@ -242,8 +242,18 @@
     \paragraph{visual steganalysis}
     This is a human powered technique which simply consists in reading the texts searching for anomalies in the syntax, 
     impagination and type of characters used. This type of analysis can only be performed by trained users and in most of the scenarios simply detects the presence of hidden messagges without retreiving it.
-    % Read "Modern Text Hiding, Text Steganalysis, and Application"
-    %   from sources folder on Drive before writing here
+    A common type of attack which could be performed by the user consciously(not necessarily) is manually changing the structure of the message. This may lead to the loss or irretrievability of the SM.
+
+    \paragraph{Statistical steganalysis}
+    We have already treated this in the previous section, but now we will focus our attention on the particular case of text steganography.
+    Since we don't want to treat the topic from a too mathematical perspective , we will try not to enter into the mathematical technicalities. The basic principle beneath is the assumption
+    that it is possible to describe the message with a probability function.
+    Recalling some basic principles of probability, if $ x_1, x_2, x_3 \dots x_n $ are independent, then $ p(x_1, x_2, x_3, ... x_n) = p(x_1) * p(x_2) * \dots * p(x_n)$. 
+    Instead when they are not then $ p(x_1, x_2, x_3, ... x_n) = p(x_1) p(x_2 | x_1) p(x_3 | x_1, x_2) \dots p(x_n | x_1, x_2, \dots, x_{n-1})$. Starting by the assumption that written text follows a logic schema and thus that words are interdependently related, then by computing the probability function
+    of the text and comparing it to the one of the \emph{stego-message}(assumed to be perturbed by steganography) we can detect the presence of steganography in the text. 
+    This tells us that in theory is possible to detect whether a sequence of characters follows a specific pattern or not,
+    and it is in theory also possible to retrieve the message from such prediction. In \cite{fast-steg-method} the experiment presented shows that it is possible 
+    to use a neural network to recognize patterns into text messages which are proper of \emph{stego-messages}.
 
     \subsection{TCP/IP}
     \subsubsection{Introduction}
