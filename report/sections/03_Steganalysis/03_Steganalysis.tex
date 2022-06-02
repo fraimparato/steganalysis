@@ -255,6 +255,8 @@
     A SVM classifier, after a proper training, is able to clearly distinguish
     between elements by mapping them into two different classes by means of
     linear regression and statistical calculus.
+    This method is applied varying the length of segements to which the FFT is
+    applied.
 
 
     \subsubsection{Echo embedding methods}
@@ -267,7 +269,8 @@
     Data are hidden by varying \emph{initial amplitude}, \emph{decay rate} and
     \emph{offset}.
     \paragraph{Encoding} is performed by dividing the signal into smaller
-    portions and the echoing each portion as an independent signals.
+    portions and the echoing each portion as an independent signals by an audio
+    mixing process.
     The coder use two different delay times to represent a binary zero(offset)
     and a binary one(offset+delta), both below audible threshold, considering
     the initial amplitude and that the decay rate follows and exponential
@@ -276,9 +279,29 @@
     portions.
     The transitions between one and zero are done by slightly modify the zero
     and one kernel in order to maximize imperceptibility.
-    
-
-
+    \paragraph{Steganalysis} of echo encoded signals is done by doing a
+    statistical analysis on the \emph{cepstrum}, which is the result of the
+    Fourier transform on the decibel spectrum of the signal.
+    As presented in \cite{review-audio-steganalysis}, the cepstrum is calculated
+    in a sample window possibly smaller than the encoding segment length.
+    The sampling window is moved over the length of the signal and the cepstrum
+    recomputed each time.
+    Then, the results can be analyzed by classifying every sampled cepstrum in
+    one of four possible categories:
+    \begin{itemize}
+        \item Inside a zero embedded segment
+        \item Inside a one embedded segment
+        \item Crossing from a one(zero) to a zero(one)
+        \item Crossing from a one(zero) to a one(zero)
+    \end{itemize}
+    This classification is possible due to the fact that the cepstrum plotting
+    exhibits peaks when encountering a delay defined by the 0 or 1 kernels.
+    Moreover, cepstrum peak location aggregation rate (CPLAR) is introduced as
+    the ratio between detected peaks and number of sampled windows.
+    CPLAR is used to discriminate between natural and steganographed audio
+    signals.
+    This method is also capable of detecting the length of the segmentation
+    used by the coder.
 
     \subsubsection{Mp3 steganalysis}
 
