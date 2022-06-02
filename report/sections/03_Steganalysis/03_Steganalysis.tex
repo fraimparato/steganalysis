@@ -304,6 +304,21 @@
     used by the coder.
 
     \subsubsection{Mp3 steganalysis}
+    The last type of audio steganalysis that we will briefly treat regards the
+    \emph{Mp3} format, which is one of the most used compressed sound formats.
+    
+    The Mp3 compression algorithm consist of two nested loops.
+    The \emph{inner loop} does the quantization of the data and determines the
+    suitable quantizer step in function of the available quantity of bits.
+    Whereas the \emph{outer loop} controls the distorsion of the encoding and
+    keeps it beyond the percpetion level.
+
+    The most common steganographic algorithms apply some modifications on the
+    encoding algorithm, for instance, modify the termination condition on the
+    inner loop and hide the data during the compression process or modify the
+    compression coefficients.
+
+    To perform a steganalysis process on an Mp3 file
 
     
 
