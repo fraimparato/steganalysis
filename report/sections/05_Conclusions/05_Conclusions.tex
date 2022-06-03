@@ -3,6 +3,50 @@
 \begin{document}
 \section{Conclusions}
 
+Up to now we discussed what are steganography and steganalysis and how the
+latter is performed. The reason why steganalysis is important is that nowadays
+almost everyone uses a computer or a digital device, and the security of
+informations is a primary object of attention. This attention led to a
+developlment of studies on signal processing jointly with information security
+services. Steganography is not the only way one can hide informations, there are
+multiple options, each one of them with a specific target:
 
+\begin{itemize}
+    \item encryption: confidentiality
+    \item watermarking: copyright protection
+    \item steganography: privacy that can also prevent traffic analysis
+\end{itemize}
+
+We can also make an example to clarify the difference between encryption and
+steganography: \emph{the prisoners' problem} \cite{prisoners-problem}, which
+considers that two accomplices in a crime have been arrested and are in two
+different rooms. The warden decides to let them communicate by exchanging
+written messages at the condition of reading all of them, hoping to find some
+information and because he fears that they could share an escape plan. Now, if
+the two prisoners encrypted their messages the warden would have been able to
+notice that they are communicating something ``strange'' and probably he will
+not deliver the message to the other criminal; in the case in which the two
+prisoners steganographed the message, the warden would not have been able to
+find that there were hidden information.
+
+Given this example, we can also clarify what \emph{steganalysis} is: it can be
+seen as the process that the warden should do in order to find that in the
+``normal'' message of the prisoners there were hidden information.
+
+At this point we can easily understand that the steganography method is
+``\emph{broken}'' simply when steganalysis is able to detect that in the cover
+type there is a hidden message. In general we can also distinguish between
+
+\begin{itemize}
+    \item \emph{passive steganalysis} which simply detects the message without
+          knowing anything else
+    \item \emph{active steganalysis} which detects the message with some extra
+          information such as the length of the message and/or its location
+\end{itemize}
+
+Moreover, when steganalysis is performed successfully, we can also update the
+steganography method which has been broken by the steganalysis. This continuous
+research in steganography and steganalysis is useful when it comes to protect
+data. \cite{review-audio-steganalysis}
 
 \end{document}
