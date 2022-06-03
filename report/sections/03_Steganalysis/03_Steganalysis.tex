@@ -197,16 +197,45 @@
     message. All the proofs are in \cite{detecting-lsb-steganography}.
 
     \subsubsection{JPEG steganalysis}
-    \paragraph{DCT Domain embedding method} works on \emph{JPEG} images, one of
-    the most used format on Internet web sites.
+    JPEG images are one of the most used format on Internet web sites, due to
+    their high compression rate, while maintaining a good quality.
+    \paragraph{DCT Domain embedding methods} modify the compression coefficients
+    in order to hide data inside the image.
     The JPEG format uses a \emph{discrete cosine transform} (DCT) to transform
     every 8x8-pixel block into 64 DCT coefficients, that are used to calculate
     the pixels when the image is displayed.
-    The DCT Domain embedding method substitute the \emph{LSB} of the
-    coefficients with the secret message: since the modification is done in the
-    frequency domain, there is no human perceivable change in the image
-    \cite{jpeg-image-internet}.
-    \paragraph{Chi-square test}
+    The simplest and most used DCT Domain embedding method substitute the
+    \emph{LSB} of the coefficients with the secret message: since the
+    modification is done in the frequency domain, there is no human perceivable
+    change in the image.
+    However, this modifications can be detect by analyzing the DCT coefficients
+    which change significantly with respect to a natural image.
+    \paragraph{Chi-square test} is a statistical steganalysis test, which aims
+    at determining whether an image shows distorsion from embedding hidden data.
+    \begin{enumerate}
+        \item Let $n_i$ be the frequency of the DCT coefficient $i$ in the
+            image, we assume that an image with hidden data has similar
+            frequency for adjacent coefficients so we compute the arithmetic
+            mean $y_{i}^{*} = \frac{n_{2i}+n_{2i+1}}{2}$ to derive the expected
+            distribution
+        \item The expected distribution is compared with the observed one
+            $y_i = n_{2i}$
+        \item The chi-square distribution for the difference between the
+            expected and the observed DCT coefficients is calculated as follows:
+            $$ \chi^2 = \sum_{i=1}^{\ni+1}
+            \frac{\left( y_i-y_{i}^{*}\right)}{y_{i}^{*}}$$
+            where $\ni$ are the degrees of freedom, which are one less than the
+            categories in the DCT coefficients histogram
+        \item The probability that there is an embedded message can be computed
+            as the complement of the \emph{cumulative distribution function} of
+            the chi-square distribution
+    \end{enumerate}
+    Note that, as presented in the stego-key section, different algorithms
+    modify the coefficients not sequentially or following different orders, so
+    the steganalysis process is usually performed by calculating the probability
+    of the presence of an embedded message considering different portions of the
+    image at the same time.
+    
 
 
     \subsection{Audio}
@@ -276,11 +305,11 @@
     \begin{enumerate}
         \item The signal is divided into segments to which is applied a
             \emph{fast Fourier transform} (FFT) in order to extract the phase
-            difference between adjacent segments.
+            difference between adjacent segments
         \item The phase difference is monitored calculating statistical features
-            of the sample.
+            of the sample
         \item \emph{SVM classifier} (support-vector machines) is used to
-            detect if the signal has been modified or not.
+            detect if the signal has been modified or not
     \end{enumerate}
     A SVM classifier, after a proper training, is able to clearly distinguish
     between elements by mapping them into two different classes by means of
