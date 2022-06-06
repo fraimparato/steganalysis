@@ -8,7 +8,7 @@
 Before treating such topic we must briefly discuss the behaviour of the
 TCP/IP (\textbf{Internet protocol suit}) communications.
 
-\paragraph{IP (Internet Protocol)} is at the basis of internet
+\subsubsection{IP (Internet Protocol)} is at the basis of internet
 communication. The protocol exploits the principle of encapsulation, sending
 packets composed by a \emph{header} which contains information such as the
 \textbf{destination address} and \textbf{source address} and a
@@ -17,14 +17,14 @@ Since physical channels usually have a limited \emph{MTU}\footnote{Maximum
 Transmission Unit}, then the data is usually fragmented in smaller chunks,
 wrapped into an header and only then transmitted.
 
-\paragraph{TCP (Transmission Control protocol)} is a protocol used for
+\subsubsection{TCP (Transmission Control protocol)} is a protocol used for
 reliable (little information loss), ordered, error-checked data transmission
 between a machine hosting the data (\textbf{Server}) and another requiring
 such data (\textbf{Client}). It is performed previous a three-way handshake
 which estabilishes a connection between server and client, thus preparing a
 reliable communication channel.
 
-\paragraph{UDP (User Datagram Protocol)}, contrary to TCP, is less reliable
+\subsubsection{UDP (User Datagram Protocol)}, contrary to TCP, is less reliable
 but faster.
 It broadcasts the data in an unordered and uncontrolled way to the receiver. 
 There is no need to estabilishing a connection in order to implement such
@@ -70,12 +70,12 @@ series of standards which are implemented by the devices on the internet and
 that we will illustrate through some examples.
 
 
-\paragraph{Tof(Type of service)} bits are a field in the TCP header which
+\subsubsection{Tof(Type of service)} bits are a field in the TCP header which
 are nowdays rarely used. This could open doors to a steganographic attack if
 modern operating systems did not set them to zero by default.
 A warden monitoring the channel could immediately signal an error.
 
-\paragraph{IP ID} is a field in the Internet Protocol which is used to
+\subsubsection{IP ID} is a field in the Internet Protocol which is used to
 assist the receiver in reassemblying the fragmented packets.
 This field consist of randomly unique numbers representing a packet.
 It is possible to insert other types of information in this field by simply
@@ -84,7 +84,7 @@ Since in many cases the numbers used for the IP ID are not random, by
 knowing the charachteristics of the sender it is possible to detect an
 infiltration.
 
-\paragraph{IP Fragment Offset} is an offset which is present in the IP
+\subsubsection{IP Fragment Offset} is an offset which is present in the IP
 header which helps the receiver to reconstruct the sequence of bits from the
 fragmented sequence.
 Modulating the size of the fragments changes the offset field in the header
@@ -93,7 +93,7 @@ The protection against this method is simply checking the size of the
 packets relative to the MTU and so even in this case a warden can easily
 detect an error.
 
-\paragraph{TCP sequence number} is a field in the TCP header which stores
+\subsubsection{TCP sequence number} is a field in the TCP header which stores
 the randomly chosen position(for security reasons) of the first byte to be
 transmitted through the channel. The steganographic method consists in
 replacing this field with the data to be sent.
@@ -104,7 +104,7 @@ could come into hand.
 However an error could be detected even simply by checking the presence of
 repetitions in the stream(not admitted by design). 
 
-\paragraph{Timestamp modulation} is another technique of steganography which
+\subsubsection{Timestamp modulation} is another technique of steganography which
 operate by modifing the \emph{LSB} of the
 timestamp of a TCP packet in order to represent a '1'.
 The covert message is thus embedded into the data stream.
