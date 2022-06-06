@@ -30,18 +30,20 @@ It broadcasts the data in an unordered and uncontrolled way to the receiver.
 There is no need to estabilishing a connection in order to implement such
 protocol.
 
-\begin{figure}[h]
+\begin{figure*}[h]
     \centering
-    \caption{Structure of TCP packet}
-    \includegraphics[scale=0.5]{tcp_header.png}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \caption{Structure of UDP packet}
-    \includegraphics[scale=0.3]{udp_header.png}
-\end{figure}
-
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \includegraphics[width=.45\linewidth]{tcp_header.png}
+        \caption{Structure of TCP packet}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \includegraphics[width=.45\linewidth]{udp_header.png}
+        \caption{Structure of UDP packet}
+    \end{subfigure}
+\end{figure*}
 
 \subsection{Exploits and protection tools}
 
