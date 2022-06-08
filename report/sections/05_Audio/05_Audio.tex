@@ -22,8 +22,6 @@ can make the steganalysis process impossible, but also that can compromise
 irreparably the hidden message, damaging also the steganographer
 \cite{techniques-data-hiding}.
 
-Due to the several issues presented above, steganalysis in audio signals is
-more complex with respect to other cover types.
 In the following sections we will cover some of the possible ways in which
 steganography and steganalysis is applied in audio signals.
 
@@ -41,24 +39,11 @@ audio signals to convey information, while maintaining the \emph{relative
 phase} in order to not compromise imperceptibility.
 
 \subsubsection{Encoding procedure}
-The encoding procedure can be performed as follows
-\cite{techniques-data-hiding}:
-\begin{enumerate}
-    \item The sound is broken into a series of N short segments
-    \item A \emph{discrete Fourier transform} (DFT) is applied to every
-        segment constructing two matrices: one for the \emph{phase}
-        $\phi_n(\omega)$ and the other for the \emph{magnitude}
-        $A_n(\omega)$ of every segment
-    \item The phase difference between each adjacent segment is stored
-    \item The binary set of data which has to be hidden is represented as
-        $\frac{\pi}{2}$ or $-\frac{\pi}{2}$ respectively 0 or 1
-    \item The phase matrix is recomputed embedding the message by modifying
-        the phase difference between adjacent segments with the encoding
-        presented at the previous point
-    \item Finally the \emph{modified phase matrix} and the original
-        magnitude matrix are used to reconstruct the sound signal b
-        applying the inverse DFT
-\end{enumerate}
+Firstly the sound is sampled into \emph{N} short segments. To each one of them 
+a \emph{discrete Fourier transform} (DFT) is applied, constructing two matrices: $\phi_n(\omega)$ for the phase 
+and  $A_n(\omega)$ for the magnitude. Sequently the phase difference between ajacent segments is stored and the message to hide 
+is converted into a phase message, representing with $\frac{\pi}{2}$ or $-\frac{\pi}{2}$ respectively 0 or 1.
+The phase matrix is then recomputed by embedding the message into it. Finally the original message is reconstructed applying an inverse DFT.
 
 \subsubsection{Steganalysis techniques}
 The steganalysis techniques for phase coding system follows a
@@ -67,23 +52,16 @@ analysis of \emph{phase discontinuites}, but which requires the use of a
 classification algorithm in order to distinguish between natural and
 modified signals.
 
-As proposed in \cite{steganalysis-phase-coding}, the steganalysis can be
-perfomed as follows:
-\begin{enumerate}
-    \item The signal is divided into segments to which is applied a
-        \emph{fast Fourier transform} (FFT) in order to extract the phase
-        difference between adjacent segments
-    \item The phase difference is monitored calculating statistical features
-        of the sample
-    \item \emph{SVM classifier} (support-vector machines) is used to
-        detect if the signal has been modified or not
-\end{enumerate}
+As proposed in \cite{steganalysis-phase-coding}, the signal is divided into segments to which is applied a
+\emph{fast Fourier transform} (FFT) in order to extract the phase difference between adjacent segments.
+Such phase difference is then monitored, calculating statistical features of the sample. Finally a \emph{SVM classifier} (support-vector machines) is used to
+ detect if the signal has been modified or not.
+
 A SVM classifier, after a proper training, is able to clearly distinguish
 between elements by mapping them into two different classes by means of
 linear regression and statistical calculus.
 This method is applied varying the length of segements to which the FFT is
 applied.
-
 
 \subsection{Echo embedding methods}
 The echo embedding methhods hide data introduzing or varying an \emph{eco}.
@@ -155,7 +133,5 @@ used in the compression algorithm.
 The analysis methods are similar to ones presented in the other sections in
 this paper, since they rely on some previous knowledge of what is expected
 and on calculations that will tell if there is or not a message encrypted.
-
-
 
 \end{document}
