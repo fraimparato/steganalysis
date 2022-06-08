@@ -73,8 +73,6 @@ IP ID. An active warden could simply check that $IP_{id2} = IP_{id1+1}$ to verif
 Therefore the defence protocol is basically the same. A slightly different technique consists in the \emph{IP ID MSB Toggle} in which the \emph{OS} toggles the most significant bit of the IP ID every \emph{rekey interval}\footnote{The WPA protocol generates periodically a security key},
 so that the warden can examine the MSB to check if it matches this pattern. Since the IP ID is unique, then it is common to check for non repetance of IDs.
 
-
-
 \subsubsection{IP Fragment Offset} IP Fragment Offeset is an offset which is
 present in the IP header which helps the receiver to reconstruct the sequence of
 bits from the fragmented sequence.
