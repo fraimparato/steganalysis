@@ -6,27 +6,20 @@
 \section{TCP/IP}
 \subsection{Introduction}
 Before treating such topic we must briefly discuss the behaviour of the
-TCP/IP (\textbf{Internet protocol suit}) communications.
-
-\subsubsection{IP (Internet Protocol)} IP is at the basis of internet
-communication. The protocol exploits the principle of encapsulation, sending
+TCP/IP (\textbf{Internet protocol suit}) communications. The \emph{IP (Internet Protocol)} is at the basis of internet
+communication. The prnotocol exploits the priciple of encapsulation, sending
 packets composed by a \emph{header} which contains information such as the
 \textbf{destination address} and \textbf{source address} and a
 \emph{payload} which represents the actual data to be transmitted.
 Since physical channels usually have a limited \emph{MTU}\footnote{Maximum
 Transmission Unit}, then the data is usually fragmented in smaller chunks,
-wrapped into an header and only then transmitted.
-
-\subsubsection{TCP (Transmission Control protocol)} TCP is a protocol used for
+wrapped into an header and only then transmitted. The \emph{TCP (Transmission Control protocol)} is derived protocol(from IP) used for
 reliable (little information loss), ordered, error-checked data transmission
 between a machine hosting the data (\textbf{Server}) and another requiring
 such data (\textbf{Client}). It is performed previous a three-way handshake
 which estabilishes a connection between server and client, thus preparing a
-reliable communication channel.
-
-\subsubsection{UDP (User Datagram Protocol)} Contrary to TCP, UDP is less
-reliable but faster.
-It broadcasts the data in an unordered and uncontrolled way to the receiver. 
+reliable communication channel. Contrary to TCP is \emph{UDP (User Datagram Protocol)}, which is less
+reliable but faster. It broadcasts the data in an unordered and uncontrolled way to the receiver. 
 There is no need to estabilishing a connection in order to implement such
 protocol.
 
@@ -76,7 +69,7 @@ conform to the uniqueness constraint.
 Since in many cases the numbers used for the IP ID are not random, by
 knowing the charachteristics of the sender it is possible to detect an
 infiltration. Many networks use a \emph{Sequential Global IP ID} for network communication which uses a global counter for the
-IP ID. An active warden could simply check that $IP_id2 = IP_{id1+1}$ to verify the cosistency of the message. Other systems use instead a \emph{Sequential Per-host IP ID} which is nothing but a per host sequeantial counter. 
+IP ID. An active warden could simply check that $IP_{id2} = IP_{id1+1}$ to verify the cosistency of the message. Other systems use instead a \emph{Sequential Per-host IP ID} which is nothing but a per host sequeantial counter. 
 Therefore the defence protocol is basically the same. A slightly different technique consists in the \emph{IP ID MSB Toggle} in which the \emph{OS} toggles the most significant bit of the IP ID every \emph{rekey interval}\footnote{The WPA protocol generates periodically a security key},
 so that the warden can examine the MSB to check if it matches this pattern. Since the IP ID is unique, then it is common to check for non repetance of IDs.
 
