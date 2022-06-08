@@ -47,30 +47,20 @@ protocol.
 
 \subsection{Exploits and protection tools}
 
-As you could notice from the previous figures, the first part of the header
-is the same. This is because it is part of the IP protocol itself.
-In the second part of each header we find different types of metadata which
-are specific for each protocol. Generally the metadat contained in the
-header is redundant for the transmission of the message itself and this 
-redundancy may become a target for a \emph{stego-algorithm}\footnote{an
+The first part of the header is part of the IP protocol.
+In the second part we find different types of metadata which
+are specific for the protocol. Generally the latter is redundant and such redundancy
+could be exploited by a \emph{stego-algorithm}\footnote{an
 algorithm used for steganography} which starting from a \emph{cover-network
 packet sequence}\footnote{a sequence of packets which will be transmitted
 over the network acting as a cover for the hidden messace} and a
 \emph{covert message}, can generate a sequence of packets(each one embedding
 a portion of the covered message) which will be sent over the network.
 
-This procedure is not a \emph{risk-free} approach for the attacker who
-wishes to send the \emph{cover-network packet sequence}, since it is
-possible that the data will be currupted during transmission or there could
-be losses using non-reliable transport protocols(UDP).
-Other criticalities of such method stay in the fact that the sequence of
-packets will most likely traverse multiple nodes in the network before
-reaching the target, and the message may be detected by these nodes.
+Despite not being \emph{risk-free} since the message could be corrupted while or even detected
+while traversing the multiple nodes of the net, such procedure is widely used.
 
-The defense against Steganography in TCP/IP communication consists in 
-series of standards which are implemented by the devices on the internet and
-that we will illustrate through some examples.
-
+Hereinafter we illustrate a series of procedures acted at defending from this type of attacks.
 
 \subsubsection{Tos (Type of service)}
 Tos are a field in the TCP header which
@@ -85,7 +75,12 @@ It is possible to insert other types of information in this field by simply
 conform to the uniqueness constraint.
 Since in many cases the numbers used for the IP ID are not random, by
 knowing the charachteristics of the sender it is possible to detect an
-infiltration.
+infiltration. Many networks use a \emph{Sequential Global IP ID} for network communication which uses a global counter for the
+IP ID. An active warden could simply check that $IP_id2 = IP_{id1+1}$ to verify the cosistency of the message. Other systems use instead a \emph{Sequential Per-host IP ID} which is nothing but a per host sequeantial counter. 
+Therefore the defence protocol is basically the same. A slightly different technique consists in the \emph{IP ID MSB Toggle} in which the \emph{OS} toggles the most significant bit of the IP ID every \emph{rekey interval}\footnote{The WPA protocol generates periodically a security key},
+so that the warden can examine the MSB to check if it matches this pattern. Since the IP ID is unique, then it is common to check for non repetance of IDs.
+
+
 
 \subsubsection{IP Fragment Offset} IP Fragment Offeset is an offset which is
 present in the IP header which helps the receiver to reconstruct the sequence of
@@ -112,56 +107,12 @@ of steganography which operate by modifing the \emph{LSB} of the timestamp of a
 TCP packet in order to represent a '1'.
 The covert message is thus embedded into the data stream.
 Since the TCP Timestamp support is not universal, machines not supporting
-such feature may detect the hidden message.
+such feature may detect the hidden message. Since there could be errors in the transimmssion of these packets, there is a 
+threshold of randomness which must be taken into account and which could lead to some unexpected results.
 
-
-\subsection{Detection of TCP/IP steganography}
-
-Each operating system exhibits well defined characteristics in generated
-TCP/IP fields. These can be used to identify any anomalies that may indicate 
-the use of steganography. For this purpose, a suite of tests which may be
-applied to \emph{network traces}\footnote{function that performs network
-analysis on a geometric network} are defined and they are used to identify
-whether the results are consistent with the operating systems believed to be
-installed on the source host.
-Diffreent methods of covert channel detection are used, employing IP ID 
-characteristics, TCP ISN characteristics and explicit steganography
-detection.
-
-\subsubsection{IP ID characteristics}
-IP ID characteristics are the features identifying the IP
-address, a unique address that identifies a device on the internet or local
-network. They are employed by the following methods.
-\emph{Sequential Global IP ID} implies the usage of a global counter for the
-IP ID. 
-To detect this strategy one has to look if connections to different hosts
-have sequentially increasing IP IDs.
-\emph{Sequential Per-host IP ID} is characterized by the usage of a per-host
-counter for packets. If it apperas to be fragmented, the warden can test
-whether connections to different hosts use apparently unrelated IP IDs;
-however connections to the same host have a sequentially increasing IP ID.
-\emph{IP ID MSB Toggle} represents the case where the operating system
-system toggles the most significant bit of the IP ID every rekey interval,
-so that the warden can examine the MSB to check if it matches this pattern.
-\emph{IP ID Permutation} strategy presence can be discarded by the warden if
-there are duplicates, since within a rekey interval the IP ID is
-non-repeating.
-
-\subsubsection{Explicit steganography detection}
-Explicit steganography detection can be employed by several
-methods.
-\emph{Nushu Criptography} is a strategy applied by Nushu, which encrypts
-data before including it in the ISN field, resulting in a distribution which
-differs form the one that is normally generated by Linux; therefore, it can
-be detected. 
-\emph{TCP Timestamp} strategy involves the execution of a randomness test.
-In particular, if a low bandwidth TCP connection is being used to leak
-information, this test can be applied to the LSBs of the timestamps in the
-TCP packets. If an excessive presence of randomness is detected in the LSBs,
-it can be deduced that a steganographic covert channel is in use.
-There are also other features which may indicate the usage of steganography:
+\subsection{Other techniques}
+There are also other methods which are simply listed(and not explained) which search for errors by checking 
 \emph{unsual flags}, \emph{excessive fragmentation}, use of \emph{IP
 options}, \emph{unexpected TCP options} and \emph{excessive re-ordering}.
-
 
 \end{document}
