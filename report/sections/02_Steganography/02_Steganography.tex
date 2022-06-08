@@ -5,33 +5,25 @@
 \section{Steganography}
 
 As we already stated, steganography is used to hide a message in a
-\emph{cover type}. We can define a cover type as the mean used to communicate,
-which can be a text file, an image, an audio recording, but also people, like in
-the case of the servants that we have mentioned earlier, etc\dots
+\emph{cover type}. The latter can be any sort of information acting as a cover.
 
-In all these cases, the message has been \emph{embedded} into the cover type.
-Here we can make a distinction between steganography and watermarking since in
-both cases a message is encoded into a communication's mean, but with different
-purposes.
+In all cases, the message is \emph{embedded} into the cover type and becomes part of it. Differently from
+Watermarking where the mark is simply overlayed to the original message.
 
 \subsection{Methods}
 
 Steganographic methods may be grouped under two different classifications.
 
-For the first, we distinguish injective and generative steganography.
-While injective steganography consists in finding an optimal way of injecting
-the message for a given cover type, generative steganography aims at generating
-an adequate container optimal for hiding a sought message.
+The first classification concentrates on the cover. We distinguish between injective and generative steganography.
+injecting steganography focuses on the methods implied in the injection of the \emph{stego message} in the cover type.
+Generative steganography instead consists in the group of methods aimed at constructing a cover from the stego message.
 
-As for the second classification, we mainly discriminate between substitutive
-and constructive steganography.
+The second classification is oriented on the mathematical representation of the cover types(treated as signals). Heere we distinguish between 
+substitutive and constructive steganography.
+Substitutive steganography targets the background noise in the signals. In this case the noise is modified to embedd the message.
+Usually by exploiting the \emph{LSB}\footnote{Least Significant Bit} of each byte,
+which is most susceptible to error, to hide the message in the signal matrix.
 
-Substitutive steganography targets the noise in signals, to substitute the
-atmospheric noise with a secret message, whether it concerns audio or digital
-image signals.
-Most commonly, it may be achieved by replacing the LSB (Least Significant Bit),
-which is most susceptible to error, with the hidden message in the matrix of
-signals.
 Several drawbacks arise, such as the limited size of the message to be inserted
 to avoid amplified distorsions of the original signals, the resilience to
 various degrees of compression and signals transformations, and lastly the
@@ -39,8 +31,7 @@ transparency of the message.
 We leave for a further discussion the different available tradeoffs, selectively
 mitigating some of the aforementioned drawbacks. 
 
-Similarly, constructive steganography integrates a noise model.
-The main drawback is that it is hard to produce, and by design fragile to
-attacks.
-
+Similarly, constructive steganography integrates a noise model into0 the message.
+The main drawback is that it is difficult to produce, and by design fragile to
+attacks\footnote{When refering to attacks to steganography we intend the steganalysis techniques implied to detect the message}.
 \end{document}
