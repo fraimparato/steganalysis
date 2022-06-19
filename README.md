@@ -22,7 +22,7 @@ root folder of the project
 
 <!-- Add code folder if needed -->
 
-Moreover, in the root folder is present a file called ```guidelines.md``` which
+Moreover, in the root folder is present a file called ```CONTRIBUTING.md``` which
 provides informations about how to practically work on this project.
 
 The file ```clear.sh``` is a Bash script that you can run in order to get rid of
