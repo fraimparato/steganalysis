@@ -9,11 +9,11 @@ attributes such as small changes in luminance or brightness or contrast near
 figures edges.
 There are several methods to apply steganography to an image, in the
 following sections we will treat some of the most common hiding techniques
-and some of the steganalysis methods to attack them.
+and some of the steganalysis methods to deal with them.
 
 \subsection{Stego-key search and encryption}
 
-It is important to notice that when we refere to modifications of the \emph{LSB} in images we
+It is important to notice that when we refer to modifications of the \emph{LSB} in images we
 do not necessarily imply modifications to every byte. Whenever allowed by the size of the cover type, it is 
 more useful and dicrete to follow some pseudo-random sequence. This sequence is usually decided by a \emph{stego-key} (usually stego-key will be mapped in a set of possible
 seeds by a hash map) \cite{stego-key}.
@@ -21,7 +21,7 @@ seeds by a hash map) \cite{stego-key}.
 We also want to point out that the embedding of information could also be preceded by an encryption of such information.
 This procedure makes the extraction of the message through a brute fore approce practically unfeasible: the complexity would
 be proportional to the cardinality of the set of possible seeds time the
-one of the set of possible encryptions. Although the enchrypted message is still suscetible to attacks.
+one of the set of possible encryptions. Although the encrypted message is still susceptible to attacks.
 
 \subsection{LSB embedding method}
 LSB embedding method is arguably the most popular steganographic method, due
@@ -30,7 +30,7 @@ In this method, the image is decomposed into \emph{bits plane} (8 bits per
 pixel for grayscale and 24 for color images, one for each color channel)
 and the \emph{least significant bit} (LSB) is substituted with the message
 to be hidden.
-Note that even if the message is encrypyted, due to its simplicity, this
+Note that even if the message is encrypted, due to its simplicity, this
 method is easily detectable with a statistical steganalysis attack
 \cite{techniques-data-hiding}.
 
@@ -41,7 +41,7 @@ stegoimage. When we are steganalysing an image we usually do not
 have the cover image. What we can do is comparing the histogram
 distribution of the stegoimage with a set of images similar to the one. 
 By the law of large numbers we should be able to find a \emph{mean imgae} to use to compare with our stegoimage.
-The cricalities arise when the set is polluted.
+The criticalities arise when the set is polluted.
 \cite{methodology-steganalysis-images}
 
 The proposed way to proceed is the following
@@ -126,8 +126,8 @@ The simplest and most used DCT Domain embedding method substitute the
 \emph{LSB} of the coefficients with the secret message: since the
 modification is done in the frequency domain, there is no human perceivable
 change in the image.
-However, this modifications can be detect by analyzing the DCT coefficients
-which change significantly with respect to a natural image
+However, these modifications can be detected by analyzing the DCT coefficients
+which changes significantly with respect to a natural image
 \cite{jpeg-image-internet}.
 \subsubsection{Chi-square test}
 The Chi-square test is a statistical steganalysis test, which aims

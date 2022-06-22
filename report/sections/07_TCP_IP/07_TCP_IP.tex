@@ -7,7 +7,7 @@
 \subsection{Introduction}
 Before treating such topic we must briefly discuss the behaviour of the
 TCP/IP (\textbf{Internet protocol suit}) communications. The \emph{IP (Internet Protocol)} is at the basis of internet
-communication. The prnotocol exploits the priciple of encapsulation, sending
+communication. The prnotocol exploits the principle of encapsulation, sending
 packets composed by a \emph{header} which contains information such as the
 \textbf{destination address} and \textbf{source address} and a
 \emph{payload} which represents the actual data to be transmitted.
@@ -18,9 +18,9 @@ reliable (little information loss), ordered, error-checked data transmission
 between a machine hosting the data (\textbf{Server}) and another requiring
 such data (\textbf{Client}). It is performed previous a three-way handshake
 which estabilishes a connection between server and client, thus preparing a
-reliable communication channel. Contrary to TCP is \emph{UDP (User Datagram Protocol)}, which is less
+reliable communication channel. Contrary to TCP is \emph{UDP (User Datagram Protocol)}, which is far less
 reliable but faster. It broadcasts the data in an unordered and uncontrolled way to the receiver. 
-There is no need to estabilishing a connection in order to implement such
+There is no need for estabilishing a connection in order to implement such
 protocol.
 
 \begin{figure*}[h]
@@ -50,10 +50,10 @@ over the network acting as a cover for the hidden messace} and a
 \emph{covert message}, can generate a sequence of packets(each one embedding
 a portion of the covered message) which will be sent over the network.
 
-Despite not being \emph{risk-free} since the message could be corrupted while or even detected
+Despite not being \emph{risk-free} since the message could be corrupted in the meanwhile, or even detected
 while traversing the multiple nodes of the net, such procedure is widely used.
 
-Hereinafter we illustrate a series of procedures acted at defending from this type of attacks.
+Hereinafter we illustrate a series of procedures acted with the purpose of defending from this type of attacks.
 
 \subsubsection{Tos (Type of service)}
 Tos are a field in the TCP header which

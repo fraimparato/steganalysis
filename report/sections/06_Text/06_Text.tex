@@ -5,7 +5,7 @@
 \section{Text}
 In this section we will illustrate in general the principle of work of the
 MTHS using the famous Simmons' prisoner problem.
-The information conveied in this part referes mainly to
+The information conveyed in this part refers mainly to
 \cite{modern-text-hiding}.
 
 \subsection{Modern Text Hiding Schema}
@@ -32,15 +32,15 @@ cover taylored by Alice and will possibly distort the message in order to
 make it unreadable to Bob.
 Once the message arrives to Bob, he will apply the inverse steganographic
 algorithm in order to read the message.
-Since the message could be courrupted Bob will have to perform some error
+Since the message could be corrupted Bob will have to perform some error
 correction in order to make the message readable again(whenever this is
 possible).
-To summarize the principal charachteristics of the message sent by Alice
+To summarize the principal characteristics of the message sent by Alice
 are:
 \begin{itemize}[noitemsep]
     \item \emph{invisibility}: the message should not be noted by Eve
-    \item \emph{capacity}: the CM must be large enough to embedd all the SM
-    \item \emph{distortion roboustness}: the SM should resist the noise
+    \item \emph{capacity}: the CM must be large enough to embed all the SM
+    \item \emph{distortion robustness}: the SM should resist the noise
         produced by Eve in the channel
 \end{itemize}
 
@@ -72,15 +72,15 @@ treat the most interesting points of the numerous ramifications.
 This set of techniques consist in altering the structure of the document
 rather than actively modifying the file. The case of \emph{open space} is
 significant: the spaces are substituted by other invisible Unicode
-character.
+characters.
 This technique is easily noticeable(even by the human eye) and not so much
-rubust.
+robust.
 Similar is the \emph{zero width} techniques which exploits the zero width
 characters present in the Unicode standard.
 Even more visible are the format, color and alignement alterations of
 \emph{Format}.
 Much more interesting is the case of \emph{Emoticons} which has found secure
-ground in the last period and which consist of assigning to each emojy a
+ground in the last period and which consist of assigning to each emoji a
 code(letter or word).
 
 \subsubsection{Linguistic}
@@ -95,10 +95,10 @@ changing symbols with others to represent some code.
 
 \subsubsection{Random and Statistic}
 These method start only from the SM and try to generate a CM.
-They are usually much more time and resources consuming.
+They are usually much more time and power consuming.
 The \emph{Compression} method consists in compressing the text of the SM
 using well known compression algorithms such as \emph{Huffman Coding}.
-The so compressed text is then reordered to mimic the user-typed format or
+The compressed text is then reordered to mimic the user-typed format or
 at least a plausible one.
 Not much more efficient is the \emph{Random Cover} approach where an
 algorithm(\emph{AH4s}) is used to generate a long(and usually meaninglsess)
@@ -109,11 +109,11 @@ The latter method is indeed very visible and also computationally expensive.
 
 \subsubsection{Visual steganalysis}
 This is a human powered technique which simply consists in reading the texts
-searching for anomalies in the syntax, impagination and type of characters
+searching for anomalies in the syntax, layout and type of characters
 used.
 This type of analysis can only be performed by trained users and in most of
 the scenarios simply detects the presence of hidden messagges without
-retreiving it.
+retrieving it.
 A common type of attack which could be performed by the user consciously(not
 necessarily) is manually changing the structure of the message.
 This may lead to the loss or irretrievability of the SM.
@@ -121,8 +121,8 @@ This may lead to the loss or irretrievability of the SM.
 \subsubsection{Statistical steganalysis}
 We have already treated this in the previous section, but now we will focus
 our attention on the particular case of text steganography.
-Since we don't want to treat the topic from a too mathematical perspective,
-we will try not to enter into the mathematical technicalities.
+As the aim of this paper is not to dwell excessively in any mathematical rigour,
+we will only attempt to give an intuition of the underlying mathematical framework that supports it.
 The basic principle beneath is the assumption that it is possible to
 describe the message with a probability function.
 Recalling some basic principles of probability, if
@@ -136,7 +136,7 @@ that words are interdependently related, then by computing the probability
 function of the text and comparing it to the one of the
 \emph{stego-message}(assumed to be perturbed by steganography) we can detect
 the presence of steganography in the text. 
-This tells us that in theory is possible to detect whether a sequence of
+This tells us that in theory it is possible to detect whether a sequence of
 characters follows a specific pattern or not, and it is in theory also
 possible to retrieve the message from such prediction.
 In \cite{fast-steg-method} the experiment presented shows that it is
